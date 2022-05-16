@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     input:{
+        color: 'black',
         width: "85%",
         borderStyle:"solid",
         borderWidth: .5,
@@ -132,9 +133,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#0165b1',
         justifyContent: "center"
     },
-    normal_text:{
-        color: 'white'
-    },
+    // normal_text:{
+    //     color: 'white'
+    // },
     subject:{
         color: 'white',
         fontSize: 18,

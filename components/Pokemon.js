@@ -33,8 +33,8 @@ const Pokemon = (props) => {
 
 const styles = StyleSheet.create({
   pokemonImage: {
-    width: '75%',
-    height: '70%' ,
+    width: '40%',
+    height: '60%' ,
   },
 })
 
