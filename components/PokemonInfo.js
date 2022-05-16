@@ -17,7 +17,7 @@ const PokemonInfo = ({ navigation, route }) => {
     return (
         <View>
             <Text>Pokemon id: {route.params.id}</Text>
-            <Text>{pokemon.name}
+            <Text>{pokemon.name}</Text>
 
               <Image
                 source={{ uri: imgURI }}

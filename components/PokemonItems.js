@@ -54,7 +54,7 @@ const PokemonItems = ({navigation}) => {
             </TouchableOpacity>
             {isLoading? <Text>Loading Pokemon</Text> :
                 <FlatList
-                    style={{height: 1000}}
+                    style={{height: 1000, padding: 5}}
                     data={filtered_data && filtered_data.length > 0 ? filtered_data : pokemon_list}
                     keyExtractor={(item) => {item.key}}
                     renderItem={({item}) =>
