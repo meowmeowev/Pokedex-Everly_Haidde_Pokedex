@@ -1,13 +1,12 @@
 import {View, Text, Image} from "react-native";
-import { SvgCssUri } from 'react-native-svg';
 import React, {useEffect, useState} from "react";
 
 const PokemonInfo = ({ navigation, route }) => {
     const [pokemon, setPokemon] = useState({});
     const [isLoading, setLoading] = useState(true);
-    const svgURI = `https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/${route.params.id}.svg`
+    const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonID}.png`
 
-    useEffect(() => {
+  useEffect(() => {
         fetch(route.params.url)
             .then((response) => response.json())
             .then((json) => setPokemon(json))
@@ -18,16 +17,15 @@ const PokemonInfo = ({ navigation, route }) => {
     return (
         <View>
             <Text>Pokemon id: {route.params.id}</Text>
-            <Text>{pokemon.name}</Text>
+            <Text>{pokemon.name}
 
-            <SvgCssUri
-                width="70%"
-                height="70%"
-                uri= {svgURI}
-            />
+              <Image
+                source={{ uri: imgURI }}
+                style={{ width: '100%', height: '70%' }}
+              />
 
         </View>
     );
 }
 
-export default PokemonInfo
+export default PokemonInfo;
