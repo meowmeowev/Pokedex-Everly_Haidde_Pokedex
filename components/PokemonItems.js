@@ -59,7 +59,7 @@ const PokemonItems = ({navigation}) => {
                     keyExtractor={(item) => {item.key}}
                     renderItem={({item}) =>
                         <TouchableOpacity style={{height: 100}}
-                                          onPress={() => navigation.navigate('PokemonInfo', { url: item.url, id: getPokemonID(item.url) })}>
+                                          onPress={() => navigation.navigate('PokemonInfo', { url: item.url, pokemonID: getPokemonID(item.url) })}>
                             <Pokemon
                                 name = {item.name}
                                 pokemonURL = {item.url}

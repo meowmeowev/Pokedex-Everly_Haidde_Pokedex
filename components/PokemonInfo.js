@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 const PokemonInfo = ({ navigation, route }) => {
     const [pokemon, setPokemon] = useState({});
     const [isLoading, setLoading] = useState(true);
-    const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonID}.png`
+    const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${route.params.pokemonID}.png`
 
   useEffect(() => {
         fetch(route.params.url)
@@ -16,8 +16,8 @@ const PokemonInfo = ({ navigation, route }) => {
 
     return (
         <View>
-            <Text>Pokemon id: {route.params.id}</Text>
-            <Text>{pokemon.name}</Text>
+            <Text style={{color: 'black'}}>Pokemon id: {route.params.id}</Text>
+            <Text style={{color: 'black'}}>{pokemon.name}</Text>
 
               <Image
                 source={{ uri: imgURI }}
