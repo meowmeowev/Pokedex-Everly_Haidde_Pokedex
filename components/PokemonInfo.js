@@ -1,4 +1,4 @@
-import {View, Text, Image} from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import React, {useEffect, useState} from "react";
 
 const PokemonInfo = ({ navigation, route }) => {
@@ -27,5 +27,7 @@ const PokemonInfo = ({ navigation, route }) => {
         </View>
     );
 }
+
+
 
 export default PokemonInfo;
