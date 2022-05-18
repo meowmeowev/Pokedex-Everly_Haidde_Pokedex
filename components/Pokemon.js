@@ -17,20 +17,36 @@ const Pokemon = (props) => {
     }, []);
 
     return (
-      <View style={{backgroundColor: 'black', marginBottom: 10, padding: 5}}>
-        <Text style={{color: 'white'}}>Pokemon id: {props.pokemonID}</Text>
-        <Text style={{color: 'white'}}>{pokemonName}</Text>
-
+      <View style={styles.pokemonCard}>
+        <View style={{flex: 1}}>
+            <Text style={{color: 'white'}}>Pokemon id: {props.pokemonID}</Text>
+            <Text style={styles.pokemonName}>{pokemonName}</Text>
+        </View>
+      
         <Image source={{ uri: imgURI }} style={styles.pokemonImage} />
       </View>
     );
 }
 
 const styles = StyleSheet.create({
+  pokemonCard: {
+    backgroundColor: 'black', 
+    marginBottom: 10, 
+    padding: 12, 
+    flexDirection: 'row',
+    borderRadius: 10
+  },
+
   pokemonImage: {
     height: 100,
     aspectRatio: 1,
   },
+
+  pokemonName: {
+    color: 'white',
+    fontSize: 24
+  },
+
 })
 
 export default Pokemon
