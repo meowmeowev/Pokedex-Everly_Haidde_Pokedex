@@ -56,7 +56,7 @@ const PokemonItems = ({navigation}) => {
           style={styles.button}
           onPress={() => search(search_text)}>
           <Image
-            source={require('./../assets/search.png')}
+            source={require('./../assets/redPokeball.png')}
             style={styles.icon}
           />
         </TouchableOpacity>
@@ -109,19 +109,19 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderBottomColor: '#828081',
     borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 8
+    borderBottomLeftRadius: 8,
   },
   button: {
     padding: 15,
-    backgroundColor: '#0165b1',
+    backgroundColor: '#14ff14',
     alignItems: 'center',
     justifyContent: 'center',
-    borderTopRightRadius: 8, 
-    borderBottomRightRadius: 8
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
   },
   icon: {
-    height: 20,
-    width: 20,
+    height: 30,
+    width: 30,
   },
 });
 
