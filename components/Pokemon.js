@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {backgroundColors, textColors} from '../assets/colors';
 
 const Pokemon = props => {
-  const [pokemon, setPokemon] = useState();
+  const [pokemon, setPokemon] = useState({});
   const [isLoading, setLoading] = useState(true);
   const [pokemonColor, setPokemonColor] = useState('white');
   const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonID}.png`;
@@ -14,8 +14,7 @@ const Pokemon = props => {
     fetch(props.pokemonURL)
       .then(response => response.json())
       .then(json => {
-        setPokemon(json.results);
-
+        setPokemon(json);
         fetch(json.species.url)
           .then(response => response.json())
           .then(json => {
@@ -44,6 +43,7 @@ const Pokemon = props => {
       </View>
 
       <Image source={{uri: imgURI}} style={styles.pokemonImage} />
+
     </View>
   );
 };
