@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import PokemonItems from './components/PokemonItems';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -15,11 +15,21 @@ const App = () => {
           name="Home"
           component={PokemonItems}
           options={{
-            title: 'Pokédex',
+            headerTitle: props => (
+              <Image
+                source={require('./assets/pokedex.png')}
+                resizeMode="contain"
+                style={{
+                  height: 40,
+                  width: '100%',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              />
+            ),
             headerStyle: {
               backgroundColor: '#CC0000',
             },
-            headerTitleStyle: {color: 'white'},
           }}
         />
         <Stack.Screen

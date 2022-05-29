@@ -35,7 +35,7 @@ const Pokemon = props => {
       ]}>
       <View style={{flex: 1}}>
         <Text style={{color: textColors[pokemonColor]}}>
-          Pokemon id: {props.pokemonID}
+          POKEMON ID: {props.pokemonID}
         </Text>
         <Text style={[styles.pokemonName, {color: textColors[pokemonColor]}]}>
           {pokemonName}
@@ -43,7 +43,6 @@ const Pokemon = props => {
       </View>
 
       <Image source={{uri: imgURI}} style={styles.pokemonImage} />
-
     </View>
   );
 };
