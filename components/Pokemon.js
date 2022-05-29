@@ -1,10 +1,11 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
+import {backgroundColors, textColors} from '../assets/colors';
 
 const Pokemon = props => {
   const [pokemon, setPokemon] = useState();
   const [isLoading, setLoading] = useState(true);
-  const [pokemonColor, setPokemonColor] = useState('white')
+  const [pokemonColor, setPokemonColor] = useState('white');
   const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonID}.png`;
 
   const pokemonName = props.name.charAt(0).toUpperCase() + props.name.slice(1);
@@ -12,17 +13,15 @@ const Pokemon = props => {
   useEffect(() => {
     fetch(props.pokemonURL)
       .then(response => response.json())
-      .then(json => { 
-        setPokemon(json.results)
+      .then(json => {
+        setPokemon(json.results);
 
         fetch(json.species.url)
-          .then((response) => response.json())
-          .then((json) => {
-
+          .then(response => response.json())
+          .then(json => {
             setPokemonColor(json.color.name);
-  
           })
-          .catch((error) => console.error(error))
+          .catch(error => console.error(error))
           .finally(() => setLoading(false));
       })
       .catch(error => console.error(error))
@@ -30,10 +29,18 @@ const Pokemon = props => {
   }, []);
 
   return (
-    <View style={styles.pokemonCard}>
+    <View
+      style={[
+        styles.pokemonCard,
+        {backgroundColor: backgroundColors[pokemonColor]},
+      ]}>
       <View style={{flex: 1}}>
-        <Text style={{color: 'white'}}>Pokemon id: {props.pokemonID}</Text>
-        <Text style={styles.pokemonName}>{pokemonName}</Text>
+        <Text style={{color: textColors[pokemonColor]}}>
+          Pokemon id: {props.pokemonID}
+        </Text>
+        <Text style={[styles.pokemonName, {color: textColors[pokemonColor]}]}>
+          {pokemonName}
+        </Text>
       </View>
 
       <Image source={{uri: imgURI}} style={styles.pokemonImage} />
@@ -43,7 +50,6 @@ const Pokemon = props => {
 
 const styles = StyleSheet.create({
   pokemonCard: {
-    backgroundColor: 'black',
     marginBottom: 10,
     padding: 14,
     flexDirection: 'row',
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
   pokemonName: {
     color: 'white',
     fontSize: 24,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
 });
 
