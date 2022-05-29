@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react';
 const Pokemon = props => {
   const [pokemon, setPokemon] = useState();
   const [isLoading, setLoading] = useState(true);
+  const [pokemonColor, setPokemonColor] = useState('white')
   const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${props.pokemonID}.png`;
 
   const pokemonName = props.name.charAt(0).toUpperCase() + props.name.slice(1);
@@ -11,7 +12,19 @@ const Pokemon = props => {
   useEffect(() => {
     fetch(props.pokemonURL)
       .then(response => response.json())
-      .then(json => setPokemon(json.results))
+      .then(json => { 
+        setPokemon(json.results)
+
+        fetch(json.species.url)
+          .then((response) => response.json())
+          .then((json) => {
+
+            setPokemonColor(json.color.name);
+  
+          })
+          .catch((error) => console.error(error))
+          .finally(() => setLoading(false));
+      })
       .catch(error => console.error(error))
       .finally(() => setLoading(false));
   }, []);
