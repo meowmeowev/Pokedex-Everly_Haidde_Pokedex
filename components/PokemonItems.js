@@ -41,7 +41,6 @@ const PokemonItems = ({navigation}) => {
       <View style={{flexDirection: 'row', padding: 8}}>
         <TextInput
           style={styles.input}
-          placeholder="Search Class..."
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={search}
@@ -95,6 +94,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 8,
   },
   button: {
+    color: 'black',
     padding: 15,
     backgroundColor: '#14C38E',
     alignItems: 'center',
