@@ -29,9 +29,9 @@ const PokemonInfo = ({navigation, route}) => {
     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: backgroundColors[pokemonColor]}}>
       {isLoading ? (
         <View
-          style={{backgroundColor: '#3498DB', height: '100%', width: '100%'}}>
+          style={{backgroundColor: '#3498DB', justifyContent: 'center', height: '100%', width: '100%'}}>
           <Image
-            style={{width: '100%'}}
+            style={{width: '100%', resizeMode: 'contain'}}
             source={require('./../assets/loading.png')}
           />
         </View>
