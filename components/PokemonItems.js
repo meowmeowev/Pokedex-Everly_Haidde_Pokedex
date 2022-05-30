@@ -73,9 +73,7 @@ const PokemonItems = ({navigation}) => {
               ? filtered_data
               : pokemon_list
           }
-          keyExtractor={item => {
-            item.key;
-          }}
+          keyExtractor={(item, index) => String(index)}
           renderItem={({item}) => (
             // pokemon card
             <TouchableOpacity
