@@ -15,21 +15,19 @@ const App = () => {
           name="Home"
           component={PokemonItems}
           options={{
-            headerTitle: props => (
-              <Image
-                source={require('./assets/pokedex.png')}
-                resizeMode="contain"
-                style={{
-                  height: 40,
-                  width: '100%',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              />
+            header: () => (
+              <View style={{backgroundColor: '#CC0000', alignItems: 'center', justifyContent: 'center', height: 56}}>
+                <Image
+                  source={require('./assets/pokedex.png')}
+                  resizeMode="contain"
+                  style={{
+                    height: 40,
+                    width: '100%',
+                  }}
+                />
+              </View>
             ),
-            headerStyle: {
-              backgroundColor: '#CC0000',
-            },
+            headerVisible: false,
           }}
         />
         <Stack.Screen
