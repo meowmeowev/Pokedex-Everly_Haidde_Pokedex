@@ -16,12 +16,6 @@ const PokemonItems = ({navigation}) => {
   const [search_text, setSearchText] = useState('');
   const [filtered_data, setFilteredData] = useState([]);
 
-  const getPokemonID = url => {
-    const endpoint = url.split('/');
-    const index = endpoint.length - 2;
-    return endpoint[index];
-  };
-
   const search = search_value => {
     setSearchText({searchText: search_value});
 
@@ -76,19 +70,10 @@ const PokemonItems = ({navigation}) => {
           keyExtractor={(item, index) => String(index)}
           renderItem={({item}) => (
             // pokemon card
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('PokemonInfo', {
-                  url: item.url,
-                  pokemonID: getPokemonID(item.url),
-                })
-              }>
-              <Pokemon
-                name={item.name}
-                pokemonURL={item.url}
-                pokemonID={getPokemonID(item.url)}
-              />
-            </TouchableOpacity>
+            <Pokemon
+              name={item.name}
+              pokemonURL={item.url}
+            />
           )}
         />
       )}

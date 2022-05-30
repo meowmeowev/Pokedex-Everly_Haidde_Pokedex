@@ -1,8 +1,10 @@
 import {View, Text, Image, StyleSheet} from 'react-native';
+import {backgroundColors, textColors} from '../assets/colors';
 import React, {useEffect, useState} from 'react';
 
 const PokemonInfo = ({navigation, route}) => {
   const [pokemon, setPokemon] = useState({});
+  const pokemonColor = route.params.color;
   const [isLoading, setLoading] = useState(true);
   const imgURI = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${route.params.pokemonID}.png`;
 
@@ -24,7 +26,7 @@ const PokemonInfo = ({navigation, route}) => {
   }, []);
 
   return (
-    <View style={{alignItems: 'center', justifyContent: 'center'}}>
+    <View style={{alignItems: 'center', justifyContent: 'center', flex: 1, backgroundColor: backgroundColors[pokemonColor]}}>
       {isLoading ? (
         <View
           style={{backgroundColor: '#3498DB', height: '100%', width: '100%'}}>
