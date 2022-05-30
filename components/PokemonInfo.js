@@ -76,6 +76,7 @@ const PokemonInfo = ({navigation, route}) => {
 const styles = StyleSheet.create({
   stats: {
     fontSize: 20,
+    color: 'black'
   },
 });
 
